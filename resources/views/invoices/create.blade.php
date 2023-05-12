@@ -26,6 +26,35 @@
                                                 value="{{ date('y-m-d') }}" required>
                                         </div>
                                     </div>
+                                    <h4 class="mx-auto mt-2 mb-2" style="width: 200px;">
+                                        customer details
+                                    </h4>
+                                    <div class="row clearfix">
+                                        <div class="col">
+                                            customer name
+                                            <br />
+                                            <input type="text" name="customer[name]"class="form-control" required>
+                                            customer address
+                                            <br />
+                                            <input type="text" name="customer[address]"class="form-control" required>
+                                        </div>
+                                        <div class="col">
+                                            customer city
+                                            <br />
+                                            <input type="text" name="customer[city]"class="form-control" required>
+                                            customer country
+                                            <br />
+                                            <input type="text" name="customer[country]"class="form-control" required>
+                                        </div>
+                                        <div class="col">
+                                            customer phone
+                                            <br />
+                                            <input type="text" name="customer[phone]"class="form-control" required>
+                                            customer email
+                                            <br />
+                                            <input type="email" name="customer[email]"class="form-control" required>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-md-12">
