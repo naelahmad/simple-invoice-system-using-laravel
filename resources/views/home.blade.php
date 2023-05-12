@@ -14,7 +14,6 @@
                             </div>
                         @endif
 
-                        <a href="{{ route('invocies.create') }}" class="btn btn-primary">Create New Invoice</a>
                     </div>
                 </div>
             </div>

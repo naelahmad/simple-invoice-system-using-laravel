@@ -18,6 +18,9 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -55,6 +58,11 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a href="{{ route('invocies.create') }}" class="nav-link">
+                                    <i class="material-icons">add_box</i>
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
