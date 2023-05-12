@@ -56,43 +56,40 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
-                                                        <tr>
-                                                            <td>BS-200</td>
-                                                            <td class="text-center">$10.99</td>
-                                                            <td class="text-center">1</td>
-                                                            <td class="text-right">$10.99</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BS-400</td>
-                                                            <td class="text-center">$20.00</td>
-                                                            <td class="text-center">3</td>
-                                                            <td class="text-right">$60.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BS-1000</td>
-                                                            <td class="text-center">$600.00</td>
-                                                            <td class="text-center">1</td>
-                                                            <td class="text-right">$600.00</td>
-                                                        </tr>
+                                                        @foreach ($invoice->invoice_items as $item)
+                                                            <tr>
+                                                                <td>{{ $item->name }}</td>
+                                                                <td class="text-center">${{ $item->price }}</td>
+                                                                <td class="text-center">{{ $item->quantity }}</td>
+                                                                <td class="text-right">
+                                                                    ${{ number_format($item->price * $item->quantity, 2) }}
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
                                                         <tr>
                                                             <td class="thick-line"></td>
                                                             <td class="thick-line"></td>
                                                             <td class="thick-line text-center"><strong>Subtotal</strong>
                                                             </td>
-                                                            <td class="thick-line text-right">$670.99</td>
+                                                            <td class="thick-line text-right">
+                                                                ${{ number_format($invoice->total_amount, 2) }}</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
-                                                            <td class="no-line text-center"><strong>Shipping</strong></td>
-                                                            <td class="no-line text-right">$15</td>
+                                                            <td class="no-line text-center"><strong>Tax Amount</strong></td>
+                                                            <td class="no-line text-right">
+                                                                ${{ number_format(($invoice->total_amount * $invoice->tax_percent) / 100, 2) }}
+                                                            </td>
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
                                                             <td class="no-line text-center"><strong>Total</strong></td>
-                                                            <td class="no-line text-right">$685.99</td>
+                                                            <td class="no-line text-right">
+                                                                ${{ number_format($invoice->total_amount + ($invoice->total_amount * $invoice->tax_percent) / 100, 2) }}
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
