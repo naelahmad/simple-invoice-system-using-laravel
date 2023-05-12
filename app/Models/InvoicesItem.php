@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class InvoicesItem extends Model
 {
     use HasFactory;
-    protected $fillable = ['invoice_number', 'invoice_date', 'customer_id', 'tax_percent'];
+    protected $fillable = ['invoice_id','name', 'quantity', 'price'];
 
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Invoice;
+use App\Models\InvoicesItem;
 use Illuminate\Http\Request;
 
 class InvoicesController extends Controller
@@ -28,7 +30,18 @@ class InvoicesController extends Controller
      */
     public function store(Request $request)
     {
-        dd('helo');
+        $customer = Customer::create($request->customer);
+        $invoice = Invoice::create($request->invoice + ['customer_id' => $customer->id]);
+        for ($i=0; $i < count($request->product); $i++) {
+            if (isset($request->qty[$i])&&isset($request->price[$i])) {
+                InvoicesItem::create([
+                    'invoice_id'=>$invoice->id,
+                    'name'=>$request->product[$i],
+                    'quantity'=>$request->qty[$i],
+                    'price'=>$request->price[$i],
+                ]);
+            }
+        }
     }
 
     /**

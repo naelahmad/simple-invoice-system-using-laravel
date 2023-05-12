@@ -49,10 +49,10 @@
                                         <div class="col">
                                             customer phone
                                             <br />
-                                            <input type="text" name="customer[phone]"class="form-control" required>
+                                            <input type="text" name="customer[phone]"class="form-control">
                                             customer email
                                             <br />
-                                            <input type="email" name="customer[email]"class="form-control" required>
+                                            <input type="email" name="customer[email]"class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                                                         <td class="text-center">
                                                             <div class="input-group mb-2 mb-sm-0">
                                                                 <input type="number" class="form-control" id="tax"
-                                                                    placeholder="0">
+                                                                    placeholder="0" name="invoice[tax_percent]">
                                                                 <div class="input-group-addon">%</div>
                                                             </div>
                                                         </td>
