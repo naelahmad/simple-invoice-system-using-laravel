@@ -24,4 +24,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('invocies', InvoicesController::class);
+    Route::get('/invocies/{invoice}/download', [InvoicesController::class, 'download'])->name('invocies.download');
 });

@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\Invoice;
 use App\Models\InvoicesItem;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class InvoicesController extends Controller
 {
@@ -52,6 +53,15 @@ class InvoicesController extends Controller
         $invoice = Invoice::with('customer', 'invoice_items')->findOrFail($id);
         return view('invoices.show', compact('invoice'));
     }
+    public function download($id)
+    { /*
+     $invoice = Invoice::with('customer', 'invoice_items')->findOrFail($id);
+     $data = ['invoice' => $invoice];
+     $pdf = PDF::loadView('invoices.show', $data)->output();
+     return $pdf->download('users_list.pdf');
+     //return view('invoices.show', compact('invoice'));
+     */
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -72,6 +82,7 @@ class InvoicesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy(Invoice $invoice)
     {
         //
